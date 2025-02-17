@@ -38,7 +38,7 @@ def load_documents_from_my_sources(sources_path: Path) -> list:
 def create_vector_db() -> Chroma:
     current_dir = Path(__file__).resolve().parent
     sources_path = current_dir / "my_sources"
-    persistent_directory = current_dir / "db" / "antonio_db"
+    persistent_directory = current_dir / "db"
 
     embeddings = OllamaEmbeddings(model=embedding_model)
     if persistent_directory.exists():
