@@ -24,12 +24,7 @@ from typing_extensions import List, TypedDict, Annotated
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langgraph.graph import START, StateGraph
-
-# Model configurations for LLM and embedding generation.
-model = "llama3.1:8b"
-embedding_model = "llama3.1:8b"
-model_provider = "ollama"
-user = "Antonio Badilla-Olivas"
+from configuration import embedding_model, model, model_provider, user
 
 
 def load_documents_from_my_sources(sources_path: Path) -> list:

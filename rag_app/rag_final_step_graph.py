@@ -23,12 +23,8 @@ from langchain_core.messages import SystemMessage
 from langgraph.checkpoint.memory import MemorySaver
 from langchain.chat_models import init_chat_model
 from rag_final_step_vector_db import create_vector_db
+from configuration import model, embedding_model, model_provider, user
 
-# Global configuration settings.
-model = "llama3.1:8b"
-embedding_model = "llama3.1:8b"
-model_provider = "ollama"
-user = "Antonio Badilla-Olivas"
 
 # Initialize the language model (LLM) and the vector database.
 llm = init_chat_model(model, model_provider=model_provider)

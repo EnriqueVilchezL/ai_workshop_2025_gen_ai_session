@@ -24,13 +24,7 @@ from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_core.messages import SystemMessage
 from langgraph.checkpoint.memory import MemorySaver
 
-# -------------------------------
-# Global configuration for the demo.
-# These values specify the LLM model and embedding model to be used.
-model = "llama3.1:8b"
-embedding_model = "llama3.1:8b"
-model_provider = "ollama"
-user = "Antonio Badilla-Olivas"
+from configuration import embedding_model, model, model_provider, user
 
 def load_documents_from_my_sources(sources_path: Path) -> list:
     """

@@ -3,8 +3,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_ollama import OllamaEmbeddings
-
-embedding_model = "llama3.1:8b"
+from configuration import embedding_model
 
 def load_documents_from_my_sources(sources_path: Path) -> list:
     source_documents = [

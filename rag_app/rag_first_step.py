@@ -30,13 +30,8 @@ from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 # Import graph utilities to build a sequence of steps in the pipeline
 from langgraph.graph import START, StateGraph
+from configuration import embedding_model, model, model_provider, user
 
-
-# Define model configurations. These strings specify which LLM and embeddings model to use.
-model = "llama3.1:8b"
-embedding_model = "llama3.1:8b"
-model_provider = "ollama"
-user = "Antonio Badilla-Olivas"
 
 
 def load_documents_from_my_sources(sources_path: Path) -> list:
