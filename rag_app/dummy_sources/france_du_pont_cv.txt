@@ -1,0 +1,77 @@
+¡Por supuesto! Aquí tienes un CV ficticio para France Du Pont, centrado en sus intereses y su reciente graduación:
+
+**France Du Pont**
+[dirección de correo electrónico eliminada] | (123) 456-7890 | LinkedIn: [linkedin.com/in/francedupontficticio](https://www.google.com/search?q=https://linkedin.com/in/francedupontficticio) | GitHub: [github.com/francedupont](https://www.google.com/search?q=https://github.com/francedupont)
+
+**Resumen**
+
+Ingeniera de Software y Científica de la Computación recién graduada de la Universidad de Tecnología de Compiègne (UTC), con gran interés en Inteligencia Artificial, aprendizaje automático y procesamiento del lenguaje natural. Experiencia demostrada en el desarrollo de modelos de clasificación de texto, como se evidencia en dos publicaciones revisadas por pares. Busco una oportunidad para aplicar mis habilidades y conocimientos en un entorno desafiante e innovador.
+
+**Educación**
+
+*   **Máster en Ciencias de la Computación, Especialización en Inteligencia Artificial**
+    *   Universidad de Tecnología de Compiègne (UTC), Compiègne, Francia
+    *   Septiembre 2022 – Junio 2024
+    *   GPA: 4.8/5.0 (equivalente ficticio)
+    *   Tesis: "Optimización de Modelos de Clasificación de Texto Multilingües Mediante Redes Neuronales Transformer"
+
+*   **Licenciatura en Ingeniería Informática**
+    *   Universidad de Tecnología de Compiègne (UTC), Compiègne, Francia
+    *   Septiembre 2019 – Junio 2022
+    *   GPA: 4.7/5.0 (equivalente ficticio)
+
+**Experiencia en Investigación**
+
+*   **Asistente de Investigación** | Laboratorio de Investigación en Inteligencia Artificial, UTC
+    *   Enero 2023 – Junio 2024
+    *   Desarrollé e implementé modelos de clasificación de texto basados en redes neuronales Transformer para la detección de discursos de odio en redes sociales, logrando una mejora del 15% en la precisión en comparación con los modelos de referencia.
+    *   Colaboré con un equipo de investigadores para diseñar experimentos, analizar resultados y redactar publicaciones científicas.
+    *   Presenté los resultados de la investigación en dos conferencias internacionales.
+    * Utilicé: Python, TensorFlow, PyTorch, Hugging Face Transformers, Scikit-learn.
+
+* **Becario de Investigación de Verano**. CNRS (Centro Nacional para la Investigación Científica), Laboratorio de Informática de Grenoble.
+    * Junio 2022 - Agosto 2022
+    * Trabajé en un proyecto que aplicaba *deep learning* a la resolución de problemas de optimización combinatoria.
+    * Desarrollé un prototipo en Python.
+
+**Publicaciones**
+
+1.  **Du Pont, F.**, Dubois, A., & Leclerc, J. (2024). "A Cross-Lingual Approach to Hate Speech Detection Using Transformer Networks." En *Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP)*.
+    * Presenta un modelo novedoso que clasifica "hate-speech" en varios idiomas.
+
+2.  **Du Pont, F.**, & Dubois, A. (2023). "Improving Text Classification Accuracy with Data Augmentation and Transfer Learning." En *Proceedings of the 17th International Conference on Artificial Intelligence Applications and Innovations (AIAI)*.
+    * Explora técnicas de aumento de datos para modelos de clasificación.
+
+**Habilidades Técnicas**
+
+*   **Lenguajes de Programación:** Python (experto), Java (intermedio), C++ (básico), SQL
+*   **Bibliotecas y Frameworks de IA/ML:** TensorFlow, PyTorch, Hugging Face Transformers, Scikit-learn, Keras, Pandas, NumPy
+*   **Procesamiento del Lenguaje Natural (PNL):** Tokenización, stemming, lematización, word embeddings (Word2Vec, GloVe, FastText), modelado de tópicos (LDA), análisis de sentimiento, NER (Named Entity Recognition)
+*   **Bases de Datos:** MySQL, PostgreSQL, MongoDB (básico)
+*   **Herramientas de Desarrollo:** Git, Docker, Jupyter Notebook/Lab, VS Code
+*   **Sistemas Operativos:** Linux (Ubuntu, Debian), Windows
+*   **Cloud Computing**: Conocimientos básicos de AWS (Amazon Web Services) y/o Google Cloud Platform (GCP).
+
+**Proyectos Personales**
+
+*   **Clasificador de Noticias Falsas (Fake News):** Desarrollé un modelo de clasificación de texto que utiliza técnicas de PNL para identificar noticias falsas en línea. (Disponible en GitHub: [github.com/francedupont/fake-news-classifier](https://www.google.com/search?q=https://github.com/francedupont/fake-news-classifier))
+*   **Sistema de Recomendación de Películas:** Creé un sistema de recomendación de películas utilizando filtrado colaborativo y basado en contenido.
+
+**Idiomas**
+
+*   **Francés:** Nativo
+*   **Inglés:** Fluido (C1)
+*   **Español:** Intermedio (B2).
+
+**Intereses**
+
+*   Inteligencia Artificial Ética
+*   Aplicaciones de la IA para el Bien Social
+*   Desarrollo de Software Sostenible
+* Ajedrez y Go.
+
+**Premios y Reconocimientos**
+* Beca de Excelencia Académica, Universidad de Tecnología de Compiègne. (2019-2024)
+* Primer Lugar. Hackathon Regional de Inteligencia Artificial. (2023)
+
+Este CV destaca las habilidades, la experiencia en investigación y los proyectos de France, mostrando su pasión por la IA y su potencial como ingeniera de software. Se han enfatizado los logros cuantificables y las palabras clave relevantes para la búsqueda de empleo.

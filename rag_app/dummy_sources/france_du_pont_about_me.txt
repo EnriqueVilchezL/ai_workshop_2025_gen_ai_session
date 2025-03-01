@@ -1,0 +1,38 @@
+## About Me
+
+I'm France, a recent Computer Science graduate from UTC, specializing in AI and Machine Learning. I'm fascinated by the potential of AI to reshape our world, particularly in the realm of Natural Language Processing. My research has focused on building robust and fair text classification models, and I'm always looking for new ways to push the boundaries of what's possible.
+
+But I'm not *just* a coder! I believe a well-rounded life fuels creativity, and I have a diverse range of passions outside of the tech world.
+
+**Beyond the Code:**
+
+*   **Anime & Manga Enthusiast:** I've been hooked on anime since I was a kid. *My Hero Academia*, *Attack on Titan*, and *Fullmetal Alchemist: Brotherhood* are some all-time favorites, but I'm always up for discovering new series. I'm particularly drawn to anime that explore complex themes of morality, justice, and the human condition. I even have a small collection of figurines (don't judge!). I also love the artistry of Studio Ghibli films – *Spirited Away* is a masterpiece that I can watch over and over. I also appreciate more philosophical anime series like *Psycho-Pass* and *Ergo Proxy*.
+
+*   **Film Buff:** I love cinema from all eras and genres. Classic French New Wave films (Truffaut, Godard) hold a special place in my heart, but I'm equally happy watching a mind-bending sci-fi thriller (like *Blade Runner 2049* or *Arrival*) or a quirky indie comedy (*The Grand Budapest Hotel* is a visual delight!). I enjoy analyzing film techniques and discussing interpretations with friends. I'm a big fan of directors like Christopher Nolan, Denis Villeneuve, and Bong Joon-ho.
+
+*   **Board Game Strategist:** I love the challenge of board games, especially those that require strategic thinking and planning. *Settlers of Catan*, *Ticket to Ride*, and *7 Wonders* are staples in my game nights. I enjoy the social aspect of board games and the friendly competition. I'm also getting into more complex strategy games like *Terraforming Mars* and *Gloomhaven*.
+
+*   **Avid Reader:** I'm always reading something, whether it's a fantasy novel (currently working my way through Brandon Sanderson's *Mistborn* series), a biography (fascinated by the lives of scientists like Alan Turing), or a non-fiction book about the latest AI breakthroughs. I find reading helps me relax and expand my perspective. I also enjoy classic literature – I recently reread *The Count of Monte Cristo* and was blown away by its timelessness.
+
+*   **Sporty Side:** While I'm not a professional athlete by any means, I enjoy staying active. I'm a regular at my local bouldering gym – it's a great workout and a fun mental challenge. I also enjoy hiking in the French countryside and occasionally play tennis with friends (though my backhand needs work!). I used to play volleyball in high school, and I still follow the sport.
+
+*   **Music Lover:** My music taste is pretty eclectic. I listen to everything from classical music (Debussy is a favorite) to electronic (Daft Punk, of course!) to indie rock (The Strokes, Arctic Monkeys). I love discovering new artists and going to live concerts when I can. I've been learning to play the ukulele – it's a fun and portable instrument!
+
+* **Culinary Adventurer:** I love trying new foods and experimenting in the kitchen. I'm particularly fond of French cuisine (naturally!), but I also enjoy exploring other culinary traditions, like Japanese ramen and Italian pasta. I'm always on the lookout for new recipes and cooking techniques. I'm trying to master the art of making perfect macarons – it's a surprisingly challenging endeavor!
+
+**My Approach to Tech:**
+
+I believe that technology should be used to make the world a better place. I'm particularly interested in the ethical implications of AI and the importance of building systems that are fair, transparent, and accountable. I'm always striving to learn and grow, both as a developer and as a person.
+
+## 🌱 I'm currently learning...
+
+*   Advanced techniques in Reinforcement Learning.
+*   Explainable AI (XAI).
+*   More about cloud deployment with AWS and Kubernetes.
+* Blender (3D modeling).
+
+## 📫 How to reach me:
+
+*   **Email:** [dirección de correo electrónico eliminada]
+*   **LinkedIn:** [linkedin.com/in/francedupontficticio](https://www.google.com/search?q=https://linkedin.com/in/francedupontficticio)
+*   **Twitter:** [twitter handle - *optional*] (I occasionally tweet about AI and tech, and sometimes about anime...)
