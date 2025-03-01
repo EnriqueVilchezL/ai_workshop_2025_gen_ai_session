@@ -14,25 +14,41 @@ from pathlib import Path
 
 # Import text splitter for breaking documents into chunks
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+
 # Import Chroma to manage vector databases
 from langchain_chroma import Chroma
+
 # Import loaders to load PDF and text files
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
+
 # Import embeddings model interface for generating embeddings
 from langchain_ollama import OllamaEmbeddings
+
 # Import initializer for the chat model (LLM)
 from langchain.chat_models import init_chat_model
+
 # Import types for annotations and type checking
 from typing_extensions import List, TypedDict
+
 # Import the Document class to represent text documents with metadata
 from langchain_core.documents import Document
+
 # Import prompt template for chat based LLMs
 from langchain_core.prompts import ChatPromptTemplate
+
 # Import graph utilities to build a sequence of steps in the pipeline
 from langgraph.graph import START, StateGraph
-from configuration import embedding_model, model, model_provider, user, db_dir, sources_dir
+from configuration import (
+    embedding_model,
+    model,
+    model_provider,
+    user,
+    db_dir,
+    sources_dir,
+    db_search_type,
+    db_search_kwargs,
+)
 from error_handler import handle_exception
-
 
 
 def load_documents_from_my_sources(sources_path: Path) -> list:
@@ -191,8 +207,8 @@ def testing_llm() -> None:
         to find relevant document chunks and returns them in the 'context' field.
         """
         retriever = db.as_retriever(
-            search_type="similarity_score_threshold",
-            search_kwargs={"k": 3, "score_threshold": 0.01},
+            search_type=db_search_type,
+            search_kwargs=db_search_kwargs,
         )
         retrieved_docs = retriever.invoke(state["question"])
         return {"context": retrieved_docs}
@@ -228,7 +244,7 @@ def testing_llm() -> None:
     graph = graph_builder.compile()
 
     # Test the pipeline with a sample question.
-    response = graph.invoke({"question": "Should I hire Antonio as an AI Engineer?"})
+    response = graph.invoke({"question": f"Should I hire {user} as an AI Engineer?"})
     print(f"Context: {response['context']}\n\n")
     print(f"Answer: {response['answer']}")
 
@@ -238,4 +254,4 @@ if __name__ == "__main__":
     try:
         testing_llm()
     except Exception as e:
-        handle_exception(e, model) 
+        handle_exception(e, model)

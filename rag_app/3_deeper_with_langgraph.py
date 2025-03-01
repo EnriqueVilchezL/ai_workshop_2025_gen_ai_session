@@ -24,23 +24,33 @@ from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_core.messages import SystemMessage
 from langgraph.checkpoint.memory import MemorySaver
 
-from configuration import embedding_model, model, model_provider, user, db_dir, sources_dir
+from configuration import (
+    embedding_model,
+    model,
+    model_provider,
+    user,
+    db_dir,
+    sources_dir,
+    db_search_kwargs,
+    db_search_type,
+)
 from error_handler import handle_exception
+
 
 def load_documents_from_my_sources(sources_path: Path) -> list:
     """
     Loads and processes documents from the specified sources directory.
-    
+
     Steps:
     1. Iterates over files with .pdf or .txt extensions.
     2. Uses the proper loader (TextLoader for .txt, PyPDFLoader for .pdf) to load the document.
     3. Adds metadata (source file name) to each document.
     4. Splits documents into smaller chunks using RecursiveCharacterTextSplitter.
     5. Divides the chunks into sections (beginning, middle, end) for better context annotation.
-    
+
     Args:
         sources_path (Path): Path to the directory containing source documents.
-    
+
     Returns:
         list: A list of processed document chunks.
     """
@@ -73,7 +83,7 @@ def load_documents_from_my_sources(sources_path: Path) -> list:
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,  # Maximum number of characters in each chunk.
         chunk_overlap=100,  # Overlap between chunks for continuity.
-        add_start_index=True  # Try to preserve the original order.
+        add_start_index=True,  # Try to preserve the original order.
     )
     all_splits = text_splitter.split_documents(docs_parsed)
     total_documents = len(all_splits)
@@ -93,13 +103,13 @@ def load_documents_from_my_sources(sources_path: Path) -> list:
 def create_vector_db() -> Chroma:
     """
     Creates or loads a persistable vector database using Chroma.
-    
+
     Steps:
     1. Determines the current directory and the location of source files and persistent storage.
     2. Generates embeddings for documents using OllamaEmbeddings.
     3. If a persistent database exists, it loads the existing one.
     4. Otherwise, it loads documents from the sources, processes them, and creates a new vector database.
-    
+
     Returns:
         Chroma: A vector database instance ready for retrieval-based queries.
     """
@@ -144,19 +154,19 @@ db = create_vector_db()
 def retrieve(query: str):
     """
     Retrieve information related to a query.
-    
+
     This function uses the vector database retriever to find relevant document chunks that match the query.
     It returns a serialized string containing source metadata and document content, along with the raw documents.
-    
+
     Args:
         query (str): The user's query.
-        
+
     Returns:
         tuple: A tuple containing a serialized string and the list of retrieved documents.
     """
     retriever = db.as_retriever(
-        search_type="similarity_score_threshold",
-        search_kwargs={"k": 5, "score_threshold": 0.01},
+        search_type=db_search_type,
+        search_kwargs=db_search_kwargs,
     )
     retrieved_docs = retriever.invoke(query)
     serialized = "\n\n".join(
@@ -169,12 +179,12 @@ def retrieve(query: str):
 def query_or_respond(state: MessagesState) -> dict:
     """
     Generates a tool call for either retrieval or direct response if no retrieval is needed.
-    
+
     It binds the language model with the retrieval tool and invokes the LLM with the conversation state.
-    
+
     Args:
         state (MessagesState): The current state containing the conversation messages.
-    
+
     Returns:
         dict: A dictionary with a list of messages as the response.
     """
@@ -186,17 +196,17 @@ def query_or_respond(state: MessagesState) -> dict:
 def generate(state: MessagesState):
     """
     Generates an answer based on the retrieved context from prior tool invocations.
-    
+
     Steps:
     1. Collects recent tool messages from the conversation state.
     2. Formats the collected document contexts into a single prompt.
     3. Creates a system message incorporating the user instructions and document context.
     4. Appends non-tool messages from the conversation history.
     5. Invokes the LLM using the formatted prompt to generate an answer.
-    
+
     Args:
         state (MessagesState): The state payload containing conversation messages.
-    
+
     Returns:
         dict: A dictionary containing a list of messages with the final answer.
     """
@@ -247,7 +257,7 @@ def build_rag_graph() -> tuple:
     3. Adds conditional edges to redirect from query processing to tool retrieval.
     4. Connects the nodes to ensure sequential processing.
     5. Attaches a memory saver for checkpointing the graph state.
-    
+
     Returns:
         tuple: The compiled graph and a configuration dictionary.
     """
@@ -273,7 +283,7 @@ def build_rag_graph() -> tuple:
 def interactive_chat() -> None:
     """
     Starts an interactive chat session on the terminal.
-    
+
     The session:
     1. Builds the RAG graph.
     2. Enters a loop to prompt the user for input.
@@ -296,7 +306,7 @@ def interactive_chat() -> None:
             config=config,
         ):
             # Pretty-print the last message of the current step.
-            step["messages"][-1].pretty_print() 
+            step["messages"][-1].pretty_print()
 
 
 if __name__ == "__main__":

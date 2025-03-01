@@ -23,7 +23,7 @@ from langchain_core.messages import SystemMessage
 from langgraph.checkpoint.memory import MemorySaver
 from langchain.chat_models import init_chat_model
 from final_vector_db import create_vector_db
-from configuration import model, embedding_model, model_provider, user
+from configuration import model, model_provider, user, db_search_kwargs, db_search_type
 
 
 # Initialize the language model (LLM) and the vector database.
@@ -51,13 +51,13 @@ def retrieve(query: str) -> tuple:
     Returns:
         tuple: A tuple containing a serialized string (with document details) and the list of retrieved documents.
     """
-    max_attempts = 3
+    max_attempts = 2
     attempt = 0
     while attempt < max_attempts:
         # Retrieve documents from the vector database using a similarity search.
         retriever = db.as_retriever(
-            search_type="similarity_score_threshold",
-            search_kwargs={"k": 5, "score_threshold": 0.01},
+            search_type=db_search_type,
+            search_kwargs=db_search_kwargs,
         )
         retrieved_docs = retriever.invoke(query)
 

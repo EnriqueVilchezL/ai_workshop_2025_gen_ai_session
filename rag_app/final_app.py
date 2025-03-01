@@ -16,6 +16,7 @@ from configuration import model
 # Build the RAG pipeline graph and retrieve configuration settings.
 graph, config = build_rag_graph()
 
+
 def gradio_chat(user_message, history):
     """
     Process a user message and update the chat history.
@@ -36,7 +37,7 @@ def gradio_chat(user_message, history):
     """
     # Structure the input for the pipeline using the user's message.
     input_payload = {"messages": [{"role": "user", "content": user_message}]}
-    
+
     # Ensure the chat history is initialized and add the new message turn.
     history = history or []
     history.append((user_message, ""))
@@ -59,6 +60,7 @@ def gradio_chat(user_message, history):
     history[-1] = (user_message, current_ai_message)
     return history, ""
 
+
 def main() -> None:
     # -------------------------------
     # Build the Gradio user interface.
@@ -66,22 +68,25 @@ def main() -> None:
         # Display a markdown header with emojis for a friendlier look.
         gr.Markdown(f"## {user}'s Personal Assistant 🤖✨")
         # Provide a brief description of the assistant's capabilities with emojis.
-        gr.Markdown(f"Hi there! 👋 This is {user}'s personal assistant. I can offer answers about skills, education, interests, and more! 😎")
+        gr.Markdown(
+            f"Hi there! 👋 This is {user}'s personal assistant. I can offer answers about skills, education, interests, and more! 😎"
+        )
         # Create the chatbot component for displaying the conversation in messages format.
         chatbot = gr.Chatbot()
         # Create a horizontal row for the text input.
         with gr.Row():
             user_input = gr.Textbox(
                 show_label=False,
-                placeholder="Type your message here and press Enter 💬"
+                placeholder="Type your message here and press Enter 💬",
             )
         # Bind the textbox submission to the gradio_chat function,
         # updating the chatbot and clearing the input.
-        user_input.submit(gradio_chat, inputs=[user_input, chatbot], outputs=[chatbot, user_input])
-    
+        user_input.submit(
+            gradio_chat, inputs=[user_input, chatbot], outputs=[chatbot, user_input]
+        )
+
     # Launch the Gradio app with sharing enabled.
     demo.launch(share=True)
- 
 
 
 if __name__ == "__main__":

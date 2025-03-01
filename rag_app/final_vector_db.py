@@ -3,7 +3,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_ollama import OllamaEmbeddings
-from configuration import embedding_model
+from configuration import embedding_model, db_dir, sources_dir
+
 
 def load_documents_from_my_sources(sources_path: Path) -> list:
     source_documents = [
@@ -36,8 +37,8 @@ def load_documents_from_my_sources(sources_path: Path) -> list:
 
 def create_vector_db() -> Chroma:
     current_dir = Path(__file__).resolve().parent
-    sources_path = current_dir / "my_sources"
-    persistent_directory = current_dir / "db"
+    sources_path = current_dir / sources_dir
+    persistent_directory = current_dir / db_dir
 
     embeddings = OllamaEmbeddings(model=embedding_model)
     if persistent_directory.exists():
@@ -49,7 +50,7 @@ def create_vector_db() -> Chroma:
         )
 
     print("Persistent directory does not exist. Initializing vector store...")
-    
+
     if not sources_path.exists():
         raise FileNotFoundError(
             f"The directory {sources_path} does not exist. Please check the path."
@@ -61,4 +62,3 @@ def create_vector_db() -> Chroma:
         persist_directory=str(persistent_directory),
         collection_metadata={"hnsw:space": "cosine"},
     )
-

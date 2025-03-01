@@ -24,7 +24,16 @@ from typing_extensions import List, TypedDict, Annotated
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langgraph.graph import START, StateGraph
-from configuration import embedding_model, model, model_provider, user, db_dir, sources_dir
+from configuration import (
+    embedding_model,
+    model,
+    model_provider,
+    user,
+    db_dir,
+    sources_dir,
+    db_search_kwargs,
+    db_search_type,
+)
 from error_handler import handle_exception
 
 
@@ -97,7 +106,7 @@ def create_vector_db() -> Chroma:
     2. Create an embeddings instance using OllamaEmbeddings.
     3. If a persistent directory exists, load the existing vector store.
     4. Otherwise, load and split the source documents and create a new vector store.
-    
+
     Returns:
         Chroma: An instance of the vector database.
     """
@@ -133,6 +142,7 @@ def create_vector_db() -> Chroma:
 # Define a structure for the search query using a TypedDict.
 class Search(TypedDict):
     query: Annotated[str, ..., "Search query to run."]
+
 
 # Define the overall state structure for the RAG pipeline.
 class State(TypedDict):
@@ -214,8 +224,8 @@ def testing_llm() -> None:
         """
         query = state["query"]
         retriever = db.as_retriever(
-            search_type="similarity_score_threshold",
-            search_kwargs={"k": 5, "score_threshold": 0.01},
+            search_type=db_search_type,
+            search_kwargs=db_search_kwargs,
         )
         retrieved_docs = retriever.invoke(query)
         return {"context": retrieved_docs}
@@ -247,7 +257,7 @@ def testing_llm() -> None:
 
     # Stream and print each step of the pipeline for real-time debugging.
     for step in graph.stream(
-        {"question": "Should I hire Antonio as a AI Engineer?"},
+        {"question": f"Should I hire {user} as a AI Engineer?"},
         stream_mode="updates",
     ):
         print(f"{step}\n\n----------------\n")
@@ -258,4 +268,4 @@ if __name__ == "__main__":
     try:
         testing_llm()
     except Exception as e:
-       handle_exception(e, model) 
+        handle_exception(e, model)
