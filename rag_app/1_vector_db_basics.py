@@ -30,7 +30,8 @@ from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 # Import graph utilities to build a sequence of steps in the pipeline
 from langgraph.graph import START, StateGraph
-from configuration import embedding_model, model, model_provider, user
+from configuration import embedding_model, model, model_provider, user, db_dir, sources_dir
+from error_handler import handle_exception
 
 
 
@@ -97,8 +98,8 @@ def create_vector_db() -> Chroma:
         Chroma: The vector database instance.
     """
     current_dir = Path(__file__).resolve().parent
-    sources_path = current_dir / "my_sources"
-    persistent_directory = current_dir / "db"
+    sources_path = current_dir / sources_dir
+    persistent_directory = current_dir / db_dir
 
     embeddings = OllamaEmbeddings(model=embedding_model)
     if persistent_directory.exists():
@@ -234,4 +235,7 @@ def testing_llm() -> None:
 
 if __name__ == "__main__":
     # Run the pipeline test when this script is executed.
-    testing_llm()
+    try:
+        testing_llm()
+    except Exception as e:
+        handle_exception(e, model) 

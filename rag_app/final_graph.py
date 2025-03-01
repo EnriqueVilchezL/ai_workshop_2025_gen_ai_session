@@ -22,7 +22,7 @@ from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_core.messages import SystemMessage
 from langgraph.checkpoint.memory import MemorySaver
 from langchain.chat_models import init_chat_model
-from rag_final_step_vector_db import create_vector_db
+from final_vector_db import create_vector_db
 from configuration import model, embedding_model, model_provider, user
 
 

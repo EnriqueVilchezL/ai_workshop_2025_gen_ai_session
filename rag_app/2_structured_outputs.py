@@ -24,7 +24,8 @@ from typing_extensions import List, TypedDict, Annotated
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langgraph.graph import START, StateGraph
-from configuration import embedding_model, model, model_provider, user
+from configuration import embedding_model, model, model_provider, user, db_dir, sources_dir
+from error_handler import handle_exception
 
 
 def load_documents_from_my_sources(sources_path: Path) -> list:
@@ -101,8 +102,8 @@ def create_vector_db() -> Chroma:
         Chroma: An instance of the vector database.
     """
     current_dir = Path(__file__).resolve().parent
-    sources_path = current_dir / "my_sources"
-    persistent_directory = current_dir / "db"
+    sources_path = current_dir / sources_dir
+    persistent_directory = current_dir / db_dir
 
     embeddings = OllamaEmbeddings(model=embedding_model)
     # If the vector store already exists, load it.
@@ -253,5 +254,8 @@ def testing_llm() -> None:
 
 
 if __name__ == "__main__":
-    # Run the pipeline test when the script is executed directly.
-    testing_llm()
+    # Run the pipeline test when this script is executed.
+    try:
+        testing_llm()
+    except Exception as e:
+       handle_exception(e, model) 

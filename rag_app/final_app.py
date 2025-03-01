@@ -9,7 +9,9 @@ This file demonstrates how to build an interactive Gradio application that:
 """
 
 import gradio as gr
-from rag_final_step_graph import build_rag_graph, user  # Import the graph builder and user name
+from final_graph import build_rag_graph, user  # Import the graph builder and user name
+from error_handler import handle_exception
+from configuration import model
 
 # Build the RAG pipeline graph and retrieve configuration settings.
 graph, config = build_rag_graph()
@@ -83,4 +85,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        handle_exception(e, model)
