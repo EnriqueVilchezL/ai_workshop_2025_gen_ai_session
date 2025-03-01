@@ -40,7 +40,8 @@ def gradio_chat(user_message, history):
 
     # Ensure the chat history is initialized and add the new message turn.
     history = history or []
-    history.append((user_message, ""))
+    history.append({"role": "user", "content": user_message})
+    history.append({"role": "assistant", "content": ""})  # Empty placeholder for the response
 
     # Initialize an empty string to accumulate the final LLM response.
     current_ai_message = ""
@@ -57,7 +58,7 @@ def gradio_chat(user_message, history):
             current_ai_message = message.content
 
     # Update the last entry in the history with the final LLM response.
-    history[-1] = (user_message, current_ai_message)
+    history[-1]["content"] = current_ai_message
     return history, ""
 
 
@@ -72,7 +73,7 @@ def main() -> None:
             f"Hi there! 👋 This is {user}'s personal assistant. I can offer answers about skills, education, interests, and more! 😎"
         )
         # Create the chatbot component for displaying the conversation in messages format.
-        chatbot = gr.Chatbot()
+        chatbot = gr.Chatbot(type="messages")
         # Create a horizontal row for the text input.
         with gr.Row():
             user_input = gr.Textbox(
