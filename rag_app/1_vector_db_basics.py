@@ -76,7 +76,7 @@ def load_documents_from_my_sources(sources_path: Path) -> list:
     docs_parsed = []
     # Loop through each candidate file, load and parse its contents.
     for source in source_documents:
-        file_path = sources_path / source["file"]
+        file_path = source["file"]
         # Choose the loader based on the file extension
         match source["extension"]:
             case ".txt":
