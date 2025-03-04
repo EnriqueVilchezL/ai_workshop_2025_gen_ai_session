@@ -80,5 +80,3 @@ I'm a recent Computer Science graduate from the Université de Technologie de Co
 3.  **Generate Stats Images:** Replace the placeholder stats links with correctly generated images from a service like `github-readme-stats`.
 4. Choose a theme for the GitHub stats.  I used "radical" in the example, but many others are available.
 5. **Customize:**  Adjust the "I'm currently learning..." section and other details to reflect her current interests and activities.
-
-This comprehensive GitHub profile will significantly strengthen France Du Pont's online presence as a software engineer and computer scientist. It showcases her skills, projects, and academic achievements in a professional and engaging way.
