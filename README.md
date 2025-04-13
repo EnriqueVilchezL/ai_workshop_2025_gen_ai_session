@@ -52,8 +52,8 @@ This project uses Nix for environment management and Poetry for Python dependenc
 3.  **Install Python Dependencies:**
 
     ```bash
-    uv init
-    uv pip install
+    uv venv
+    uv pip install --compile -r pyproject.toml
     ```
 
 4.  **Install Ollama Manually:**  Download and install Ollama from the official website ([https://ollama.com/](https://ollama.com/)).
@@ -101,7 +101,7 @@ The `dev.nix` describes steps for using Google's IDX. Within IDX, the environmen
     *   **`final_app.py`**: The main Gradio application file.
     *   **`final_graph.py`**:  Defines the final RAG pipeline using LangGraph.
     *   **`final_vector_db.py`**:  Handles the creation and loading of the vector database.
-    *   **`pyproject.toml`**:  Defines Python project metadata and dependencies (using Poetry).
+    *   **`pyproject.toml`**:  Defines Python project metadata and dependencies.
     *   **`.gitignore`**: Specifies files and directories to be ignored by Git.
     *   **`dummy_sources/`**: Contains sample text and PDF files used as the knowledge base for the RAG system.  These files describe the fictional person, France Du Pont.
 *   **`LICENSE`**:  The MIT License file.
