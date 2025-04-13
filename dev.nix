@@ -7,7 +7,7 @@
   packages = [
     pkgs.ollama
     pkgs.python312
-    pkgs.poetry
+    pkgs.uv
     pkgs.git
     pkgs.gcc-unwrapped
     pkgs.stdenv.cc.cc
@@ -25,12 +25,11 @@
     };
     workspace = {
       onCreate = {
-        clone-repo = "git clone https://github.com/Antonio-Tresol/ai_workshop_gen_ai_session.git";
+        clone-repo = "git clone https://github.com/EnriqueVilchezL/ai_workshop_gen_ai_session.git";
         
         setup-poetry = ''
           cd ai_workshop_gen_ai_session/rag_app && \
-          poetry config virtualenvs.in-project true && \
-          poetry install || echo "Failed to run poetry install. Check directory exists."
+          uv pip install --compile -r pyproject.toml 
         '';
       };
       onStart = {
