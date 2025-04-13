@@ -1,3 +1,4 @@
+This is a forked version of <a href="https://github.com/Antonio-Tresol/ai_workshop_2025_gen_ai_session.git">ai_workshop_2025_gen_ai_session</a>.
 
 # ai workshop 2025 gen ai session
 
@@ -22,7 +23,7 @@ Additionally, the `dev.nix` file specifies the Nix environment, including:
 
 *   `ollama`: For running local LLMs.
 *   `python312`:  Python 3.12.
-*   `poetry`:  For dependency management.
+*   `uv`:  For dependency management.
 *   `git`: For version control.
 *   `gcc-unwrapped`, `pkgs.stdenv.cc.cc`:  C/C++ compilers (likely required by some of the Python packages).
 
@@ -30,29 +31,29 @@ Additionally, the `dev.nix` file specifies the Nix environment, including:
 
 This project uses Nix for environment management and Poetry for Python dependency management.  There are two main ways to run the project: using a Nix-enabled environment in IDX or using Poetry directly.
 
-### 1. Using Poetry 
+### 1. Using Uv 
 
  This approach requires you to manually install system dependencies (like Ollama).
 
 1.  **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/Antonio-Tresol/ai_workshop_2025_gen_ai_session.git
+    git clone https://github.com/EnriqueVilchezL/ai_workshop_2025_gen_ai_session.git
     cd ai_workshop_2025_gen_ai_session/rag_app
     ```
 
 2.  **Install Poetry:**  If you don't have it already, install Poetry:
 
     ```bash
-    curl -sSL https://install.python-poetry.org | python3 -
+    curl -LsSf https://astral.sh/uv/install.sh | sh
     ```
-    you'll have to add your local bin directory to you path in order to use the poetry command directly. More information in <a href="https://python-poetry.org/docs/#installing-with-the-official-installer">Poetry's Documentation </a>
+    More information in <a href="https://docs.astral.sh/uv/getting-started/installation/#pypi">Uv's Documentation </a>
 
 3.  **Install Python Dependencies:**
 
     ```bash
-    poetry config virtualenvs.in-project true  # Create venv inside project
-    poetry install
+    uv init
+    uv pip install
     ```
 
 4.  **Install Ollama Manually:**  Download and install Ollama from the official website ([https://ollama.com/](https://ollama.com/)).
@@ -75,10 +76,10 @@ This project uses Nix for environment management and Poetry for Python dependenc
 
 7.  **Run the Scripts:**
 
-    You can now run the Python scripts.  Make sure you're in the `rag_app` directory and have activated the virtual environment created by Poetry:
+    You can now run the Python scripts.  Make sure you're in the `rag_app` directory and have the virtual environment created by Uv:
 
     ```bash
-    poetry run python 0_llm_basics_with_langchain.py
+    uv run python 0_llm_basics_with_langchain.py
     ```
 
 ### 2. Using IDX
@@ -115,7 +116,7 @@ The final application is in `rag_app/final_app.py`.  To run it:
 4.  **Run the script:**
 
     ```bash
-    poetry run python final_app.py
+    uv run python final_app.py
     ```
 
 This will launch a Gradio web interface in your browser.  You can then interact with the chatbot, asking questions about France Du Pont.
