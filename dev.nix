@@ -25,11 +25,11 @@
     };
     workspace = {
       onCreate = {
-        clone-repo = "git clone https://github.com/EnriqueVilchezL/ai_workshop_gen_ai_session.git";
+        clone-repo = "git clone https://github.com/EnriqueVilchezL/ai_workshop_2025_gen_ai_session.git";
         
         setup-poetry = ''
-          cd ai_workshop_gen_ai_session/rag_app && \
-          uv pip install --compile -r pyproject.toml 
+          cd ai_workshop_2025_gen_ai_session/rag_app && \
+          uv venv && uv pip install --compile -r pyproject.toml 
         '';
       };
       onStart = {
