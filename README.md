@@ -42,7 +42,7 @@ This project uses Nix for environment management and Poetry for Python dependenc
     cd ai_workshop_2025_gen_ai_session/rag_app
     ```
 
-2.  **Install Poetry:**  If you don't have it already, install Poetry:
+2.  **Install Uv:**  If you don't have it already, install Uv:
 
     ```bash
     curl -LsSf https://astral.sh/uv/install.sh | sh
